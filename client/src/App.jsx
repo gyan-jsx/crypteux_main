@@ -1,15 +1,13 @@
-import { Welcome, Footer, Services, Transactions } from "./components";
+import {  Welcome, Footer, Features, Transactions } from "./components";
 import HeroWithNavbar from "./components/HeroWithNavbar";
-
 
 const App = () => (
   <div className="min-h-screen">
-  
-     
- <HeroWithNavbar/>
- <div className="gradient-bg-welcome">
- <Welcome />
-    </div>
+   
+     <HeroWithNavbar />
+      <Welcome />
+   <Features />
+    
   </div>
 );
 

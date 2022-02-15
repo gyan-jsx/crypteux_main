@@ -1,22 +1,35 @@
-import React, { Fragment, useContext } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import logo from '../../images/favicon.ico'
-import cryptoBg from '../../images/crypto_bg.jpg'
+import React, { Fragment, useContext } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import logo from "../../images/favicon.ico";
+import cryptoBg from "../../images/crypto_bg.jpg";
 import { TransactionContext } from "../context/TransactionContext";
+import "./css/bootstrap.min.css";
 
+import { Link } from "react-scroll";
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
+  { name: "Send ETH", href: "#sendETH" },
+  { name: "Features", href: "#features" },
+  { name: "Transactions", href: "#" },
+  { name: "News", href: "#" },
+
+];
 
 export default function HeroWithNavbar() {
-  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+  } = useContext(TransactionContext);
   return (
-    <div className="relative gradient overflow-hidden">
+    <div
+      style={{ borderBottom: "2px #000 solid" }}
+      className="relative gradient overflow-hidden"
+    >
       <div className="max-w-7xl  mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <svg
@@ -31,15 +44,15 @@ export default function HeroWithNavbar() {
 
           <Popover>
             <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
-              <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <nav
+                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                aria-label="Global"
+              >
                 <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                   <div className="flex items-center justify-between w-full md:w-auto">
                     <a href="#">
                       <span className="sr-only">Workflow</span>
-                      <img
-                        className="h-8 w-auto sm:h-10"
-                        src={logo}
-                      />
+                      <img className="h-8 w-auto sm:h-10" src={logo} />
                     </a>
                     <div className="-mr-2 flex items-center md:hidden">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -51,11 +64,19 @@ export default function HeroWithNavbar() {
                 </div>
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   {navigation.map((item) => (
-                    <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="font-medium text-gray-500 hover:text-gray-900"
+                    >
                       {item.name}
                     </a>
                   ))}
-                  <a style={{color: '#1effa5'}} href="#" className="font-medium text-600 hover:text-indigo-500">
+                  <a
+                    style={{ color: "#1effa5" }}
+                    href="#"
+                    className="font-medium text-600 hover:text-indigo-500"
+                  >
                     Log in
                   </a>
                 </div>
@@ -103,7 +124,7 @@ export default function HeroWithNavbar() {
                     ))}
                   </div>
                   <a
-                  style={{color: '#1effa5'}}
+                    style={{ color: "#1effa5" }}
                     href="#"
                     className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
                   >
@@ -117,27 +138,40 @@ export default function HeroWithNavbar() {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">A perfect web app to send </span>{' '}
-                <span style={{color: '#1effa5'}} className="block text-indigo-600 xl:inline">online crypto currencies</span>
+                <span className="block xl:inline">
+                  A perfect web app to send{" "}
+                </span>{" "}
+                <span
+                  style={{ color: "#1effa5" }}
+                  className="block text-indigo-600 xl:inline"
+                >
+                  online Ethreums on any network.
+                </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  This web app helps you to send cryptocurrenciy(ETH) within seconds. It uses blockchain technology to make the transactions secure and fraud-free.
+                This web app helps you to send cryptocurrency(ETH) within
+                seconds. It uses blockchain technology to make the transactions
+                secure and fraud-free.
               </p>
-              
+
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <button
-                    style={{backgroundColor: '#1effa5'}}
-                    
-                  
+                    style={{ backgroundColor: "#1effa5" }}
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
-                    Get started
+                    <Link
+                      activeClass="active"
+                      to="welcome"
+                      spy={true}
+                      
+                     
+                      
+                    > Get started</Link>
+                   
                   </button>
                 </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                
-                </div>
+                <div className="mt-3 sm:mt-0 sm:ml-3"></div>
               </div>
             </div>
           </main>
@@ -151,5 +185,5 @@ export default function HeroWithNavbar() {
         />
       </div>
     </div>
-  )
+  );
 }
